@@ -1,0 +1,117 @@
+<!-- on this page i got this error In HTML, <button> cannot be a descendant of <button>.
+This will cause a hydration error.
+
+...
+<Box3 component="div" sx={{height:"100%", ...}}>
+<Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{height:"100%", ...}}>
+<Insertion6>
+<div className="MuiBox-roo...">
+<Typography2>
+<Box3>
+<Box3>
+<Box3 component="div" sx={{display:"flex", ...}}>
+<Styled(div) as="div" ref={null} className="MuiBox-root" theme={{...}} sx={{display:"flex", ...}}>
+<Insertion6>
+<div className="MuiBox-roo...">
+<Card2 sx={{maxWidth:345, ...}}>
+<MuiCard-root className="MuiCard-root" elevation={undefined} ref={null} ownerState={{...}} ...>
+<Insertion6>
+<Paper2 className="MuiCard-ro..." elevation={undefined}>
+<MuiPaper-root as="div" ownerState={{...}} className="MuiPaper-r..." ref={null} style={{...}}>
+<Insertion6>
+<div className="MuiPaper-r..." style={{...}}>
+<CardActionArea2>
+<MuiCardActionArea-root className="MuiCardAct..." focusVisibleClassName="" ref={null} ...>
+<Insertion6>
+<ButtonBase2 className="MuiCardAct..." focusVisibleClassName="">
+<MuiButtonBase-root as="button" className="MuiButtonB..." ownerState={{...}} ...>
+<Insertion6> -->
+
+    <!-- for getting this type of error the solution is here  -->
+
+    <!-- {students &&
+  students.map((student) => {
+    return (
+      <Card key={student._id} sx={{ maxWidth: 345, marginRight: "10px" }}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="340"
+            image={`/images/uploaded/student/${student.student_image}`}
+            alt="Student Image"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Name:</span> {student.name}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Email:</span> {student.email}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Class:</span>{" "}
+              {student.student_class.class_text}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Age:</span> {student.age}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Gender:</span> {student.gender}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Guardian:</span>{" "}
+              {student.guardian}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              <span style={{ fontWeight: 700 }}>Guardian Phone:</span>{" "}
+              {student.guardian_phone}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        {/* Move buttons outside CardActionArea */}
+        <Box sx={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+          <Button
+            onClick={() => {
+              handleEdit(student._id);
+            }}
+          >
+            <EditIcon />
+          </Button>
+          <Button
+            onClick={() => {
+              handleDelete(student._id);
+            }}
+            sx={{ marginLeft: "10px" }}
+          >
+            <DeleteIcon sx={{ color: "red" }} />
+          </Button>
+        </Box>
+      </Card>
+    );
+  })} -->
+
+  <!-- or  -->
+
+  <!-- <Card key={student._id} sx={{ maxWidth: 345, marginRight: "10px" }}>
+    <div>
+      <CardMedia
+        component="img"
+        height="340"
+        image={`/images/uploaded/student/${student.student_image}`}
+        alt="Student Image"
+      />
+      <CardContent>
+        {/* Card content here */}
+      </CardContent>
+    </div>
+    <Box sx={{ display: "flex", justifyContent: "center", padding: "10px" }}>
+      <Button onClick={() => handleEdit(student._id)}>
+        <EditIcon />
+      </Button>
+      <Button
+        onClick={() => handleDelete(student._id)}
+        sx={{ marginLeft: "10px" }}
+      >
+        <DeleteIcon sx={{ color: "red" }} />
+      </Button>
+    </Box>
+  </Card> -->
