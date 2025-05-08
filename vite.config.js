@@ -1,23 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // added this line
   build: {
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            return id
-              .toString()
-              .split("node_modules/")[1]
-              .split("/")[0]
-              .toString();
+            if (id.includes("react")) {
+              return "react"; // Group React-related libraries
+            }
+            if (id.includes("swiper")) {
+              return "swiper"; // Group Swiper-related libraries
+            }
+            return "vendor"; // Group other node_modules into a vendor chunk
           }
         },
       },
     },
+    chunkSizeWarningLimit: 1500, // Increase the chunk size warning limit
   },
 });
