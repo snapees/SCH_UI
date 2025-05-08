@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   CardMedia,
   Paper,
@@ -10,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { BASE_API_URL } from "../../../environment";
 
 export default function TeacherDetails() {
