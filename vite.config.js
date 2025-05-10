@@ -9,16 +9,11 @@ export default defineConfig({
     },
   },
   build: {
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            if (id.includes("react")) {
-              return "react"; // Group React-related libraries
-            }
-            if (id.includes("swiper")) {
-              return "swiper"; // Group Swiper-related libraries
-            }
             return "vendor"; // Group other node_modules into a vendor chunk
           }
         },
